@@ -1,19 +1,75 @@
-# sx-language
+# ❗️ Dependencies
 
-## Project setup
-```
-npm install
-```
+You must install the internationalization plugin vue-i18n with de command.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+```sh
+npm i vue-i18n
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+# 📖 Implementation
+
+Copy the following code in the entry point of your application for example: **main.ts** or **main.js**.
+
+```sh
+import VueI18n from "vue-i18n"
+import useSxLanguagePackage from "sx-language-package"
+
+const i18n = useSxLanguagePackage(Vue, VueI18n, {
+  applicationServer: 'the server of the SLM API from where your are trying to get the translations',
+  applicationCode: 'your application code',
+  fallbackLocale: 'your default locale',
+  loadOnMount: 'by default is true'
+}) 
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Now you must pass the const **i18n** obtained from the useSxLanguagePackage() method to the new Vue instance, 
+your entry point should look like this:
+
+```sh
+import Vue from 'vue'
+import App from './App.vue'
+import VueI18n from "vue-i18n"
+import useSxLanguagePackage from "sx-language-package"
+
+Vue.config.productionTip = false
+
+const i18n = useSxLanguagePackage(Vue, VueI18n, {
+  applicationServer: 'https://localhost:44301',
+  applicationCode: '20e0bee7-954a-46f9-b113-19f48c943f19',
+  fallbackLocale: 'es',
+}) 
+
+new Vue({
+  i18n,
+  render: h => h(App),
+}).$mount('#app')
+```
+
+# 🔥 Usage
+
+In your vue template you need to put your key and label as you specified in **SLM** and the filter sx-translate
+
+```sh
+<template>
+  <div>
+    <p>{{ "placeholder.value" | sx-translate }}</p>
+  </div>
+</template>
+```
+
+In the component that selects the current language of the application, import the following function:
+
+```sh
+import { setLanguage } from 'sx-language-package'
+```
+
+Now create a method that receives the locale you want to display. In my case changeLocale:
+
+```sh
+    changeLocale(locale) {
+        setLanguage(this.$i18n, locale)
+    }
+```
+📢 Note that  **Vue-I18n** instance must be passed to it in the first parameter.
+
+
