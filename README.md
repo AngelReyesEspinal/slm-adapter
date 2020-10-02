@@ -72,4 +72,6 @@ Now create a method that receives the locale you want to display. In my case cha
 ```
 📢 Note that  **Vue-I18n** instance must be passed to it in the first parameter.
 
+[public repository](https://github.com/AngelReyesEspinal/slm-adapter)
+
 
