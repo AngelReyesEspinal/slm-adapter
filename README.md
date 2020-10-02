@@ -34,9 +34,10 @@ import useSlmAdapter from "slm-adapter"
 Vue.config.productionTip = false
 
 const i18n = useSlmAdapter(Vue, VueI18n, {
-  applicationServer: 'https://localhost:44301',
-  applicationCode: '20e0bee7-954a-46f9-b113-19f48c943f19',
-  fallbackLocale: 'es',
+  applicationServer: 'the server of the SLM API from where your are trying to get the translations',
+  applicationCode: 'your application code',
+  fallbackLocale: 'your default locale',
+  loadOnMount: 'by default is true'
 }) 
 
 new Vue({
