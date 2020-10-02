@@ -1,6 +1,6 @@
 {
   "name": "sx-language-package",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "main": "dist/sxLanguage.umd.js",
   "module": "dist/sxLanguage.esm.js",
   "unpkg": "dist/sxLanguage.min.js",
