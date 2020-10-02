@@ -12,9 +12,9 @@ Copy the following code in the entry point of your application for example: **ma
 
 ```sh
 import VueI18n from "vue-i18n"
-import useSxLanguagePackage from "sx-language-package"
+import useSlmAdapter from "slm-adapter"
 
-const i18n = useSxLanguagePackage(Vue, VueI18n, {
+const i18n = useSlmAdapter(Vue, VueI18n, {
   applicationServer: 'the server of the SLM API from where your are trying to get the translations',
   applicationCode: 'your application code',
   fallbackLocale: 'your default locale',
@@ -22,18 +22,18 @@ const i18n = useSxLanguagePackage(Vue, VueI18n, {
 }) 
 ```
 
-Now you must pass the const **i18n** obtained from the useSxLanguagePackage() method to the new Vue instance, 
+Now you must pass the const **i18n** obtained from the useSlmAdapter() method to the new Vue instance, 
 your entry point should look like this:
 
 ```sh
 import Vue from 'vue'
 import App from './App.vue'
 import VueI18n from "vue-i18n"
-import useSxLanguagePackage from "sx-language-package"
+import useSlmAdapter from "slm-adapter"
 
 Vue.config.productionTip = false
 
-const i18n = useSxLanguagePackage(Vue, VueI18n, {
+const i18n = useSlmAdapter(Vue, VueI18n, {
   applicationServer: 'https://localhost:44301',
   applicationCode: '20e0bee7-954a-46f9-b113-19f48c943f19',
   fallbackLocale: 'es',
@@ -60,7 +60,7 @@ In your vue template you need to put your key and label as you specified in **SL
 In the component that selects the current language of the application, import the following function:
 
 ```sh
-import { setLanguage } from 'sx-language-package'
+import { setLanguage } from 'slm-adapter'
 ```
 
 Now create a method that receives the locale you want to display. In my case changeLocale:

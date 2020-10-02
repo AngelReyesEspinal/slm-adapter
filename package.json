@@ -1,11 +1,11 @@
 {
-  "name": "sx-language-package",
-  "version": "0.2.21",
-  "main": "dist/sxLanguage.umd.js",
-  "module": "dist/sxLanguage.esm.js",
-  "unpkg": "dist/sxLanguage.min.js",
+  "name": "slm-adapter",
+  "version": "0.3.0",
+  "main": "dist/slm-adapter.umd.js",
+  "module": "dist/slm-adapter.esm.js",
+  "unpkg": "dist/slm-adapter.min.js",
   "browser": {
-    "./sfc": "src/sxLanguage.vue"
+    "./sfc": "src/slm-adapter.vue"
   },
   "files": [
     "dist/*",
@@ -19,9 +19,9 @@
   },
   "scripts": {
     "build": "npm run build:unpkg & npm run build:es & npm run build:umd",
-    "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format umd --file dist/sxLanguage.umd.js",
-    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es --file dist/sxLanguage.esm.js",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife --file dist/sxLanguage.min.js"
+    "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format umd --file dist/slm-adapter.umd.js",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es --file dist/slm-adapter.esm.js",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife --file dist/slm-adapter.min.js"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",

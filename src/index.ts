@@ -26,7 +26,7 @@ const setLocaleMessage = (i18n, languageCode, locales) => {
   i18n.setLocaleMessage(languageCode, messages[languageCode]);
 }
 
-const useSxLanguagePackage = (Vue, VueI18n, { applicationServer, applicationCode, fallbackLocale, loadOnMount = true }) => {
+const useSlmAdapter = (Vue, VueI18n, { applicationServer, applicationCode, fallbackLocale, loadOnMount = true }) => {
   Vue.use(VueI18n);
   localStorage.setItem('sx-application-code', applicationCode);
   localStorage.setItem('sx-application-server', applicationServer);
@@ -42,5 +42,5 @@ const useSxLanguagePackage = (Vue, VueI18n, { applicationServer, applicationCode
   return i18n;
 }
 
-export default useSxLanguagePackage;
+export default useSlmAdapter;
 export { setLanguage };
